@@ -19,7 +19,7 @@ function commonCharacters(s1, s2) {
 // 테스트 코드
 function testCommonCharacters() {
     const testCases = [
-        { input: ["apple", "pineapple"], expected: new Set(['p', 'l', 'e']) },
+        { input: ["apple", "pineapple"], expected: new Set(['a', 'p', 'l', 'e']) },
         { input: ["hello", "world"], expected: new Set(['o', 'l']) },
         { input: ["abc", "def"], expected: new Set() },
         { input: ["abcdef", "fedcba"], expected: new Set(['a', 'b', 'c', 'd', 'e', 'f']) },
