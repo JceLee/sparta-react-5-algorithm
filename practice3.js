@@ -16,7 +16,7 @@
 
 
 function isAnagram(a, b) {
-    // 함수를 작성해주세요.
+    // 코드작성공간
 }
 
 // 테스트 코드
@@ -26,6 +26,16 @@ function testIsAnagram() {
         { input: ["hello", "bello"], expected: false },
         { input: ["anagram", "nagaram"], expected: true },
         { input: ["rat", "car"], expected: false },
+        { input: ["Dormitory", "Dirty room"], expected: true }, // 공백과 대소문자 무시
+        { input: ["The eyes", "They see"], expected: true }, // 공백과 대소문자 무시
+        { input: ["a gentleman", "elegant man"], expected: true }, // 공백과 대소문자 무시
+        { input: ["School master", "The classroom"], expected: true }, // 공백과 대소문자 무시
+        { input: ["Conversation", "Voices rant on"], expected: true }, // 공백과 대소문자 무시
+        { input: ["Astronomer", "Moon starer"], expected: true }, // 공백과 대소문자 무시
+        { input: ["funeral", "real fun"], expected: true }, // 공백과 대소문자 무시
+        { input: ["adultery", "true lady"], expected: true }, // 공백과 대소문자 무시
+        { input: ["Eleven plus two", "Twelve plus one"], expected: true }, // 공백과 대소문자 무시
+        { input: ["apple", "pale"], expected: false } // 길이가 다른 경우
     ];
 
     testCases.forEach(({input, expected}, index) => {
