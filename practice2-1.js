@@ -9,19 +9,20 @@
 // 예시:
 
 // 입력: "banana"
-// 출력: 'a' (혹은 'n')
+// 출력: 'a'
 
 
 function mostFrequentChar(s) {
-    // 이곳에 함수 작성을 해주세요.
+    // 코드작성해주세요!
 }
 
 // 테스트 코드
 function testMostFrequentChar() {
     const testCases = [
-        { input: "banana", expected: ['a', 'n'] },
-        { input: "apple", expected: ['p'] },
+        { input: "bananaeeeeeeeee", expected: ['e'] },
+        { input: "appllaaaae", expected: ['a'] },
         { input: "mississippi", expected: ['i', 's'] },
+        { input: "mississippiss", expected: ['s'] },
         { input: "aabbcc", expected: ['a', 'b', 'c'] },
     ];
 
