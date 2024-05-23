@@ -12,14 +12,15 @@
 // 출력: 'a'
 
 
+
 function mostFrequentChar(s) {
-    // 코드작성해주세요!
+  // 코드를 작성해주세요.
 }
 
 // 테스트 코드
 function testMostFrequentChar() {
     const testCases = [
-        { input: "bananaeeeeeeeee", expected: ['e'] },
+        { input: "banana", expected: ['a'] },
         { input: "appllaaaae", expected: ['a'] },
         { input: "mississippi", expected: ['i', 's'] },
         { input: "mississippiss", expected: ['s'] },
