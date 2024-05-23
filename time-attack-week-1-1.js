@@ -75,10 +75,6 @@ function testCountConsistentStrings() {
     console.log("테스트 완료");
 }
 
-// 테스트 실행
-testCountConsistentStrings();
-
-
 
 // 테스트 함수 호출      'node time-attack-week-1-1.js'     라고 터미널에 쳐주세요
 testCountConsistentStrings();
