@@ -9,7 +9,7 @@
 // 예시:
 
 // 입력: "banana"
-// 출력: 'a' (혹은 'n')
+// 출력: 'a' (혹은 'n').
 
 
 function mostFrequentChar(s) {
