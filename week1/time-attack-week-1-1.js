@@ -29,10 +29,8 @@
 */
 
 function countConsistentStrings(allowed, words) {
-
-    // 이곳에 코드를 작성하세요
-
-    // 문제 풀이 계획은 이번에는 필수는 아니지만!! 쓰시면 도움이 되실 겁니다!
+    const allowedSet = new Set(allowed);
+    return words.filter(word => [...word].every(char => allowedSet.has(char))).length;
 }
 
 function testCountConsistentStrings() {
