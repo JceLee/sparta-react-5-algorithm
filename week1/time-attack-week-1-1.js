@@ -29,25 +29,8 @@
 */
 
 function countConsistentStrings(allowed, words) {
-  // 1. allowed 문자열을 집합으로 변환
-  const allowedSet = new Set(allowed);
-  let consistentCount = 0;
-
-  // 2. words 배열을 순회하면서 각 문자열이 allowed에 있는 문자들로만 구성되어 있는지 확인
-  for (const word of words) {
-    let isConsistent = true;
-    for (const char of word) {
-      if (!allowedSet.has(char)) {
-        isConsistent = false;
-        break;
-      }
-    }
-    if (isConsistent) {
-      consistentCount++;
-    }
-  }
-
-  return consistentCount;
+  // 이곳에 코드를 작성하세요
+  // 문제 풀이 계획은 이번에는 필수는 아니지만!! 쓰시면 도움이 되실 겁니다!
 }
 
 function testCountConsistentStrings() {

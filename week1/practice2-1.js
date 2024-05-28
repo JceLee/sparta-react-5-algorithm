@@ -12,10 +12,42 @@
 // 출력: 'a'
 
 
+function mostFrequentChar1(s) {
+    const char = {};
+    let max = 0;
+    let maxChar = [];
+    for (let i = 0; i < s.length; i++) {
+      if (!char[s[i]]) {
+        char[s[i]] = 1;
+      } else {
+        char[s[i]]++;
+      }
+    }
+    for (let i in char) {
+      if (char[i] > max) {
+        max = char[i];
+        maxChar = i;
+      }
+    }
+    return maxChar;
+  }
 
-function mostFrequentChar(s) {
-  // 코드를 작성해주세요.
-}
+function mostFrequentChar2(s) {
+    const charCount = {};
+    for (let i = 0; i < s.length; i++) {
+      const char = s[i];
+      charCount[char] ? (charCount[char] += 1) : (charCount[char] = 1);
+    }
+    let maxChar = "";
+    let maxCount = 0;
+    for (const char in charCount) {
+      if (charCount[char] > maxCount) {
+        maxCount = charCount[char];
+        maxChar = char;
+      }
+    }
+    return maxChar;
+  }
 
 // 테스트 코드
 function testMostFrequentChar() {

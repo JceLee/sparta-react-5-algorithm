@@ -18,29 +18,19 @@
 
 
 function countCharacters(s) {
-    // 함수 countCharacters(문자열 s):
-    // characterCount = 빈 객체 {}
-  
-    // 반복문 i = 0에서 s.length까지:
-    //     문자 = s[i]
-    //     만약 characterCount[문자]가 존재하지 않으면:
-    //         characterCount[문자] = 1
-    //     그렇지 않으면:
-    //         characterCount[문자] += 1
-  
-    // 반환 characterCount
-  
-    const characterCount = {};
-  
-    for (let i = 0; i < s.length; i++) {
-      if (!characterCount[s[i]]) {
-        characterCount[s[i]] = 1;
-      } else {
-        characterCount[s[i]] += 1;
-      }
+  const result = new Map();
+  for (let i = 0; i < s.length; i++) {
+    let letter = s[i];
+    if (result.get(letter)) {
+      result.set(letter, result.get(letter) + 1);
+    } else {
+      result.set(letter, 1);
     }
-    return characterCount;
   }
+
+  const answer = Object.fromEntries(result.entries());
+  return answer;
+}
 
 // 테스트 코드
 function testCountCharacters() {
