@@ -29,52 +29,72 @@
 */
 
 function countConsistentStrings(allowed, words) {
+  // 1. allowed 문자열을 집합으로 변환
+  const allowedSet = new Set(allowed);
+  let consistentCount = 0;
 
-    // 이곳에 코드를 작성하세요
+  // 2. words 배열을 순회하면서 각 문자열이 allowed에 있는 문자들로만 구성되어 있는지 확인
+  for (const word of words) {
+    let isConsistent = true;
+    for (const char of word) {
+      if (!allowedSet.has(char)) {
+        isConsistent = false;
+        break;
+      }
+    }
+    if (isConsistent) {
+      consistentCount++;
+    }
+  }
 
-    // 문제 풀이 계획은 이번에는 필수는 아니지만!! 쓰시면 도움이 되실 겁니다!
+  return consistentCount;
 }
 
 function testCountConsistentStrings() {
-    function runTestCase(allowed, words, expected) {
-        const result = countConsistentStrings(allowed, words);
-        const passed = result === expected;
-        console.log(`allowed: "${allowed}", words: ${JSON.stringify(words)}, expected: ${expected}, got: ${result} - ${passed ? 'PASSED' : 'FAILED'}`);
-    }
+  function runTestCase(allowed, words, expected) {
+    const result = countConsistentStrings(allowed, words);
+    const passed = result === expected;
+    console.log(
+      `allowed: "${allowed}", words: ${JSON.stringify(
+        words
+      )}, expected: ${expected}, got: ${result} - ${
+        passed ? "PASSED" : "FAILED"
+      }`
+    );
+  }
 
-    // 예제 1
-    runTestCase("ab", ["ad", "bd", "aaab", "baa", "badab"], 2);
+  // 예제 1
+  runTestCase("ab", ["ad", "bd", "aaab", "baa", "badab"], 2);
 
-    // 예제 2
-    runTestCase("abc", ["a", "b", "c", "ab", "ac", "bc", "abc"], 7);
+  // 예제 2
+  runTestCase("abc", ["a", "b", "c", "ab", "ac", "bc", "abc"], 7);
 
-    // 예제 3
-    runTestCase("cad", ["cc", "acd", "b", "ba", "bac", "bad", "ac", "d"], 4);
+  // 예제 3
+  runTestCase("cad", ["cc", "acd", "b", "ba", "bac", "bad", "ac", "d"], 4);
 
-    // 추가 테스트 케이스 1
-    runTestCase("a", ["a", "aa", "aaa", "b", "ab"], 3);
+  // 추가 테스트 케이스 1
+  runTestCase("a", ["a", "aa", "aaa", "b", "ab"], 3);
 
-    // 추가 테스트 케이스 2
-    runTestCase("xyz", ["x", "y", "z", "xy", "xz", "yz", "xyz", "xyza"], 7);
+  // 추가 테스트 케이스 2
+  runTestCase("xyz", ["x", "y", "z", "xy", "xz", "yz", "xyz", "xyza"], 7);
 
-    // 추가 테스트 케이스 3
-    runTestCase("wxyz", ["wx", "wy", "wz", "xyz", "wxyz"], 5);
+  // 추가 테스트 케이스 3
+  runTestCase("wxyz", ["wx", "wy", "wz", "xyz", "wxyz"], 5);
 
-    // 추가 테스트 케이스 4
-    runTestCase("abc", ["def", "ghi", "jkl"], 0);
+  // 추가 테스트 케이스 4
+  runTestCase("abc", ["def", "ghi", "jkl"], 0);
 
-    // 추가 테스트 케이스 5
-    runTestCase("mno", ["m", "n", "o", "mn", "no", "mo", "mno", "mnop"], 7);
+  // 추가 테스트 케이스 5
+  runTestCase("mno", ["m", "n", "o", "mn", "no", "mo", "mno", "mnop"], 7);
 
-    // 추가 테스트 케이스 6
-    runTestCase("lmn", ["lm", "ln", "mn", "lmno"], 3);
+  // 추가 테스트 케이스 6
+  runTestCase("lmn", ["lm", "ln", "mn", "lmno"], 3);
 
-    // 추가 테스트 케이스 7
-    runTestCase("abc", ["ab", "bc", "ca", "aabbcc", "abcabc"], 5);
+  // 추가 테스트 케이스 7
+  runTestCase("abc", ["ab", "bc", "ca", "aabbcc", "abcabc"], 5);
 
-    console.log("테스트 완료");
+  console.log("테스트 완료");
 }
-
 
 // 테스트 함수 호출      'node time-attack-week-1-1.js'     라고 터미널에 쳐주세요
 testCountConsistentStrings();
