@@ -20,7 +20,7 @@
 function findLongestPalindrome(words) {
   // 문제를 풀어주세요
   // 힌트..! 팰린드롬 인지 체크하는 함수를 내부에 선언하고 사용을 하면 더 효율적입니다.!
-  // function isPalindrome(str) {}
+  // e.g) function isPalindrome(str) {}
 }
 
 // 테스트 코드
