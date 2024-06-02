@@ -1,10 +1,31 @@
 ## 1. 필수적으로 알아두면 좋을 정규식 + 대소문자 처리
 
-여러 학생들이 팰린드롬 판별 함수를 잘 작성했습니다.
-또한 대소문자를 구분하지 않기 위해 `toLowerCase()`를 사용하고, 알파벳과 숫자만을 남기기 위해 정규식을 사용한 방법이 적절합니다.
+또한 대소문자를 구분하지 않기 위해 `toLowerCase()`를 사용하고,
+알파벳과 숫자만을 남기기 위해 정규식을 사용한 방법이 적절합니다.
 
 ```javascript
 str = str.replace(/[^a-z0-9]/gi, "").toLowerCase();
+```
+
+## 이런 정규식은 알아두면 좋습니다.
+
+```javascript
+const onlyLettersRegex = /^[a-zA-Z]+$/;
+```
+
+```javascript
+const onlyNumbersRegex = /^[0-9]+$/;
+```
+
+## 이런 정규식들은... 그냥 검색하면서 사용합시다.
+
+```javascript
+const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+```
+
+```javascript
+const urlRegex =
+  /^(https?:\/\/)?(www\.)?([a-zA-Z0-9-]{1,256}\.[a-zA-Z0-9]{1,6}\b)(\/[a-zA-Z0-9#]+\/?)*$/;
 ```
 
 ## 2. 양쪽 끝에서부터 비교하기
