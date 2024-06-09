@@ -25,8 +25,43 @@
 // 첫 번째 라운드에서는 앨리스가 2를 제거하고, 밥이 5를 제거합니다. 밥이 먼저 5를 arr에 추가하고, 앨리스가 2를 추가합니다.
 // 결과적으로 arr = [5, 2]가 됩니다.
 
-// 함수 구현:
-function minimumNumberGame(nums) {}
+function minimumNumberGame(nums) {
+  // 배열에서 최소값의 인덱스를 찾는 함수
+  const findMinIndex = (arr) => {
+    let minIndex = 0;
+    for (let i = 1; i < arr.length; i++) {
+      if (arr[i] < arr[minIndex]) {
+        minIndex = i;
+      }
+    }
+    return minIndex;
+  };
+
+  // 결과를 저장할 배열 초기화
+  const result = [];
+
+  // nums 배열이 빌 때까지 반복
+  while (nums.length > 0) {
+    // 앨리스의 최소값 찾기
+    const aliceMinIndex = findMinIndex(nums);
+    const aliceMinValue = nums.splice(aliceMinIndex, 1)[0];
+
+    // nums 배열이 아직 비어있지 않다면 밥의 최소값 찾기
+    if (nums.length > 0) {
+      const bobMinIndex = findMinIndex(nums);
+      const bobMinValue = nums.splice(bobMinIndex, 1)[0];
+
+      // 밥의 값을 결과 배열에 먼저 추가
+      result.push(bobMinValue);
+    }
+
+    // 앨리스의 값을 결과 배열에 추가
+    result.push(aliceMinValue);
+  }
+
+  // 최종 결과 배열 반환
+  return result;
+}
 
 // 테스트 코드
 function testMinimumNumberGame() {
