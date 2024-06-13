@@ -10,7 +10,7 @@
 
 // 예시:
 
-// 입력: [5, 4, 2, 3]
+// 입력: [5, 4, 2, 3] -> [2]
 // 출력: [3, 2, 5, 4]
 
 // 설명:
@@ -25,7 +25,46 @@
 // 첫 번째 라운드에서는 앨리스가 2를 제거하고, 밥이 5를 제거합니다. 밥이 먼저 5를 arr에 추가하고, 앨리스가 2를 추가합니다.
 // 결과적으로 arr = [5, 2]가 됩니다.
 
-function minimumNumberGame(nums) {}
+function minimumNumberGame(nums) {
+  // 배열에서 최소값의 인덱스를 찾는 헬퍼 함수를 하나 작성합니다.
+  const findMinIndex = (arr) => {
+    let minIndex = 0;
+    for (let i = 1; i < arr.length; i++) {
+      if (arr[i] < arr[minIndex]) {
+        minIndex = i;
+      }
+    }
+    return minIndex;
+  };
+
+  // 나중에 출력을 할 빈 배열? 선언을 해줍니다.
+  const result = [];
+
+  // nums while loop 사용해서 반복해준다. 언제 끝날지! break point nums 에 숫자가 하나도 남아 있지 않을 경우
+
+  while (nums.length > 0) {
+    // 앨리스가 먼저 nums 라는 배열에서 최소값이 위치되고 있는 위치를 찾아야 될 것 같아요. -> 헬퍼 함수 사용
+    const aliceMinIndex = findMinIndex(nums);
+    // 앨리스에게 그 최소값을 손에 쥐어 줍시다.
+    const aliceMinValue = nums.splice(aliceMinIndex, 1)[0];
+    // nums 에 숫자가 남아 있는지 확인하고
+    if (nums.length > 0) {
+      // -> 100% 밥에 대한 로직
+      // 밥도 최소값을 손에 쥐도록 해줍시다. -> nums 배열에서 bob 이 가져간 숫자는 제외를 시켜주면 될 것 같아요.
+      const bobMinIndex = findMinIndex(nums);
+      const bobMinValue = nums.splice(bobMinIndex, 1)[0];
+      // 밥이 손에 들고 있는 값을 먼저 출력을 할 배열에 추가를 시켜줍니다.
+      result.push(bobMinValue);
+    }
+    // 앨리스가 추가를 시켜주면 됩니다.
+    result.push(aliceMinValue);
+
+    // 만약에 남아 있다면
+  }
+  return result;
+
+  // while loop 이 더이상 돌아가지 않는다면, 리턴을 해주자. 선언한 배열을
+}
 
 // 테스트 코드
 function testMinimumNumberGame() {
